@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 .env.local
-ip-adress-tracker-master
+ip-address-tracker-master
