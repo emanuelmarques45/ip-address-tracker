@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { KeyboardEvent, MouseEvent, useRef, useState } from 'react'
 import { iconArrow } from '../../assets/images'
 import S from './style'
 import { getIpInfo } from '../../hooks'
@@ -10,6 +10,18 @@ export default function Header() {
 
   const { data, isLoading, isError } = getIpInfo(ip)
 
+  function handleKeyDown(
+    ev: KeyboardEvent<HTMLInputElement | HTMLButtonElement>
+  ) {
+    if (ev.key === 'Enter' || ev.key === 'Numpad Enter') {
+      setIp(inputIp.current?.value)
+    }
+  }
+
+  function handleClick(ev: MouseEvent<HTMLButtonElement>) {
+    setIp(inputIp.current?.value)
+  }
+
   return (
     <S.Container>
       <h1>IP Adress Tracker</h1>
@@ -18,9 +30,14 @@ export default function Header() {
         <S.InputIp
           ref={inputIp}
           type="text"
+          onKeyDown={handleKeyDown}
           placeholder="Search for any IP Adress or domain"
         />
-        <S.ButtonSearch onClick={() => setIp(inputIp.current?.value)}>
+        <S.ButtonSearch
+          tabIndex={0}
+          onClick={handleClick}
+          onKeyDown={handleKeyDown}
+        >
           <img src={iconArrow} alt="Icon Arrow" />
         </S.ButtonSearch>
       </S.InputIpContainer>
