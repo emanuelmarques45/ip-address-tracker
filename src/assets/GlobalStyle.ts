@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
     
     --clr-very-dark-gray: hsl(0, 0%, 17%);
     --clr-dark-gray: hsl(0, 0%, 59%);
+    --clr-gray: hsl(0, 0%, 80%);
     --clr-black: hsl(0,0%,5%);
     --clr-white: hsl(0,0%,98%);
 
@@ -44,10 +45,11 @@ const GlobalStyle = createGlobalStyle`
     --fw-bold: 700;
 
     font-size: 62.5%;
+    --fs-200: 1rem;
     --fs-300: 1.4rem;
-    --fs-400: 1.8rem;
-    --fs-500: 2.6rem;
-    --fs-600: 3.8rem;
+    --fs-400: 1.6rem;
+    --fs-500: 2rem;
+    --fs-600: 3rem;
     --fs-700: 4.6rem;
     --fs-800: 5.4rem;
 
@@ -88,8 +90,13 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html, body {
+  html, body, #root {
     height: 100%;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
   }
 
   body {
@@ -108,7 +115,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: var(--fs-500);
+    font-size: var(--fs-600);
     font-weight: var(--fw-semi-bold);
   }
 

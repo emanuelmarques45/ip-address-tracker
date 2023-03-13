@@ -43,7 +43,31 @@ export default function Header() {
       </S.InputIpContainer>
       {isError && <span>Insert a valid IP</span>}
       <S.Modal>
-        {!isLoading ? <p>{data.location.region}</p> : <Loader />}{' '}
+        {!isLoading ? (
+          <ul>
+            <li>
+              <span>ip address</span>
+              <S.Info>{data.ip}</S.Info>
+            </li>
+
+            <li>
+              <span>location</span>
+              <S.Info>
+                {data.location.city}, {data.location.region}
+              </S.Info>
+            </li>
+            <li>
+              <span>timezone</span>
+              <S.Info>{data.location.timezone}</S.Info>
+            </li>
+            <li>
+              <span>isp</span>
+              <S.Info>{data.isp}</S.Info>
+            </li>
+          </ul>
+        ) : (
+          <Loader />
+        )}
       </S.Modal>
     </S.Container>
   )

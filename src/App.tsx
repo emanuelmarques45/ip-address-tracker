@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { GlobalStyle } from './assets/GlobalStyle'
-import { Header } from './components'
+import { Header, Map } from './components'
 
 const queryClient = new QueryClient()
 
@@ -10,6 +10,7 @@ export default function App() {
       <GlobalStyle />
       <QueryClientProvider client={queryClient}>
         <Header />
+        <Map />
       </QueryClientProvider>
     </>
   )

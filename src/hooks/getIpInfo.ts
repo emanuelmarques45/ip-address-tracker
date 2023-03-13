@@ -12,6 +12,19 @@ export function getIpInfo(ip: string | undefined) {
 
     return await fetch(URL).then(data => data.json())
   })
+  // const fake = {
+  //   ip: '10.10.10.10',
+  //   location: {
+  //     city: 'Itajaí',
+  //     region: 'Santa Catarina',
+  //     timezone: 'UTC -03:00'
+  //   },
+  //   isp: 'Google unitelecomunicacoes sa ltda '
+  // }
 
-  return { data, isLoading, isError }
+  return {
+    data,
+    isLoading,
+    isError
+  }
 }
