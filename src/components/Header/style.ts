@@ -9,7 +9,7 @@ const Container = styled.header`
   gap: 4rem;
   text-align: center;
   background: url(${patternBgMobile}) no-repeat center top;
-  padding-bottom: 13rem;
+  padding: 2rem 0 13rem;
 
   @media (${devices.mobile}) {
     background: url(${patternBgDesktop}) no-repeat center top;
@@ -30,6 +30,16 @@ const InputIp = styled.input`
   width: 100%;
   border-radius: var(--br) 0 0 var(--br);
   padding: 1rem 2rem;
+
+  &::placeholder {
+    font-size: var(--fs-300);
+  }
+
+  @media (${devices.tablet}) {
+    &::placeholder {
+      font-size: var(--fs-400);
+    }
+  }
 `
 
 const ButtonSearch = styled.span`
@@ -81,7 +91,7 @@ const Modal = styled.div`
 
   li {
     flex: 1;
-    padding: 3rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
