@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import styled, { css } from 'styled-components'
 import { devices } from '../../assets/GlobalStyle'
 import { patternBgDesktop, patternBgMobile } from '../../assets/images'
@@ -20,7 +21,7 @@ const Container = styled.header`
   }
 `
 
-const InputIpContainer = styled.div`
+const InputIpContainer = styled(motion.div)`
   position: relative;
   display: flex;
   width: min(50rem, 85vw);

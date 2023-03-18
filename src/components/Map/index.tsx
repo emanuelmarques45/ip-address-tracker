@@ -1,12 +1,12 @@
 import S from './style'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import { MapContainer, Marker, TileLayer } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import { DivIcon, Icon, LatLngTuple } from 'leaflet'
 import { useIpContext } from '../contexts'
 import { iconLocation } from '../../assets/images'
 
 export default function Map() {
-  const icon: DivIcon = new Icon({
+  const icon = new Icon({
     iconUrl: iconLocation,
     popupAnchor: [-0, -0],
     iconSize: [32, 38]
@@ -33,7 +33,7 @@ export default function Map() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Marker icon={icon} position={coordinates}>
-          <S.PopupS>{coordinates.join(', ')}</S.PopupS>
+          <S.PopupS> {coordinates.join(', ')}</S.PopupS>
         </Marker>
       </MapContainer>
     </S.Container>
