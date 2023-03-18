@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 const sizes = {
-  mobile: '425px',
+  mobile: '375px',
   tablet: '768px',
   laptop: '1024px',
   laptopL: '1440px'
@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
     --clr-purplish-blue: hsl(243, 100%, 62%);
     --clr-pastel-blue: hsl(228, 100%, 84%);
     --clr-light-blue: hsl(206, 94%, 87%);
-    --clr-strawberry-red: hsl(354, 84%, 57%);
+    --clr-red: hsl(354, 71%, 64%);
     
     /* NEUTRAL */
     

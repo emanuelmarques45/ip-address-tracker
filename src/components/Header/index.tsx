@@ -1,14 +1,13 @@
 import { KeyboardEvent, MouseEvent, useRef, useState } from 'react'
 import { iconArrow } from '../../assets/images'
 import S from './style'
-import { getIpInfo } from '../../hooks'
 import { Loader } from '../'
+import { useIpContext } from '../contexts'
 
 export default function Header() {
   const inputIp = useRef<HTMLInputElement>(null)
-  const [ip, setIp] = useState<string | undefined>('')
 
-  const { data, isLoading, isError } = getIpInfo(ip)
+  const { data, isLoading, isError, setIp } = useIpContext()
 
   function handleKeyDown(
     ev: KeyboardEvent<HTMLInputElement | HTMLButtonElement>
@@ -32,6 +31,7 @@ export default function Header() {
           type="text"
           onKeyDown={handleKeyDown}
           placeholder="Search for any IP Adress or domain"
+          isError={isError}
         />
         <S.ButtonSearch
           tabIndex={0}
@@ -40,8 +40,8 @@ export default function Header() {
         >
           <img src={iconArrow} alt="Icon Arrow" />
         </S.ButtonSearch>
+        {isError && <S.Error>Insert a valid IP</S.Error>}
       </S.InputIpContainer>
-      {isError && <span>Insert a valid IP</span>}
       <S.Modal>
         {!isLoading ? (
           <ul>

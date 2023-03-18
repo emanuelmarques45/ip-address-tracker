@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { devices } from '../../assets/GlobalStyle'
 import { patternBgDesktop, patternBgMobile } from '../../assets/images'
 
@@ -9,7 +9,7 @@ const Container = styled.header`
   gap: 4rem;
   text-align: center;
   background: url(${patternBgMobile}) no-repeat center top;
-  padding-bottom: 13rem;
+  padding: 2rem 0 13rem;
 
   @media (${devices.mobile}) {
     background: url(${patternBgDesktop}) no-repeat center top;
@@ -21,15 +21,50 @@ const Container = styled.header`
 `
 
 const InputIpContainer = styled.div`
+  position: relative;
   display: flex;
-  width: min(50rem, 90vw);
+  width: min(50rem, 85vw);
   height: 5rem;
 `
 
-const InputIp = styled.input`
+const InputIp = styled.input.attrs((props: { isError: boolean }) => ({
+  isError: props.isError
+}))`
   width: 100%;
   border-radius: var(--br) 0 0 var(--br);
   padding: 1rem 2rem;
+
+  &::placeholder {
+    font-size: var(--fs-300);
+  }
+
+  @media (${devices.tablet}) {
+    &::placeholder {
+      font-size: var(--fs-400);
+    }
+  }
+
+  ${props =>
+    props.isError &&
+    css`
+      animation: shake 0.1s ease 0s 2;
+      box-shadow: 0 0 0.5rem red;
+
+      @keyframes shake {
+        0% {
+          margin-left: 0rem;
+        }
+        25% {
+          margin-left: 0.5rem;
+        }
+        75% {
+          margin-left: -0.5rem;
+        }
+        100% {
+          margin-left: 0rem;
+        }
+      }
+    `}
 `
 
 const ButtonSearch = styled.span`
@@ -48,7 +83,7 @@ const Info = styled.span`
 `
 
 const Modal = styled.div`
-  width: min(120rem, 90vw);
+  width: min(120rem, 85vw);
   background-color: var(--clr-white);
   border-radius: var(--br);
   position: absolute;
@@ -81,7 +116,7 @@ const Modal = styled.div`
 
   li {
     flex: 1;
-    padding: 3rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -110,11 +145,19 @@ const Modal = styled.div`
   }
 `
 
+const Error = styled.span`
+  position: absolute;
+  left: 1rem;
+  top: -2.5rem;
+  color: var(--clr-red);
+`
+
 export default {
   Container,
   InputIpContainer,
   InputIp,
   ButtonSearch,
   Modal,
-  Info
+  Info,
+  Error
 }
