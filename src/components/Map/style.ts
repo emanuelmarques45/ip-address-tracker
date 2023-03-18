@@ -1,3 +1,4 @@
+import { Popup } from 'react-leaflet'
 import styled from 'styled-components'
 import { devices } from '../../assets/GlobalStyle'
 
@@ -15,4 +16,14 @@ const Container = styled.div`
   }
 `
 
-export default { Container }
+const PopupS = styled(Popup)`
+  font-size: var(--fs-400);
+  font-family: var(--ff-primary);
+
+  .leaflet-popup-content-wrapper,
+  .leaflet-popup-tip {
+    background-color: var(--clr-gray);
+  }
+`
+
+export default { Container, PopupS }

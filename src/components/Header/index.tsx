@@ -1,5 +1,5 @@
 import { KeyboardEvent, MouseEvent, useRef, useState } from 'react'
-import { iconArrow } from '../../assets/images'
+import { iconArrow, iconLocation } from '../../assets/images'
 import S from './style'
 import { Loader } from '../'
 import { useIpContext } from '../contexts'
