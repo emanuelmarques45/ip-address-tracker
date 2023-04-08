@@ -82,6 +82,7 @@ export default function Header() {
           animate="animate"
         >
           <S.InputIp
+            autoFocus
             ref={inputIp}
             type="text"
             onKeyDown={handleKeyDown}
