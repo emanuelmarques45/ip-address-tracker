@@ -89,39 +89,32 @@ const Modal = styled.div`
   border-radius: var(--br);
   position: absolute;
   z-index: 2;
-  top: 18rem;
+  top: 17rem;
+
+  @media (${devices.tablet}) {
+    top: 23rem;
+  }
 
   ul {
     display: flex;
     flex-direction: column;
 
-    @media (${devices.mobile}) {
-      flex-flow: row wrap;
-    }
-
     @media (${devices.tablet}) {
       justify-content: space-between;
+    }
 
-      li {
-        text-align: left;
-        padding: 4rem;
-        gap: 2rem;
-        font-size: var(--fs-500);
-
-        span:not(${Info}) {
-          font-size: var(--fs-300);
-        }
-      }
+    @media (${devices.mobile}) {
+      flex-flow: row wrap;
     }
   }
 
   li {
     flex: 1;
-    padding: 2rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    font-size: var(--fs-400);
+    gap: 0.5rem;
+    font-size: var(--fs-300);
     position: relative;
 
     span:not(${Info}) {
@@ -142,6 +135,14 @@ const Modal = styled.div`
         top: 50%;
         translate: 0 -50%;
       }
+
+      span:not(${Info}) {
+        font-size: var(--fs-300);
+      }
+    }
+
+    @media (${devices.mobile}) {
+      padding: 2rem;
     }
   }
 `

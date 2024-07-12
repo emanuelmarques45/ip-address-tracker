@@ -3,7 +3,11 @@ import styled from 'styled-components'
 import { devices } from '../../assets/GlobalStyle'
 
 const Container = styled.div`
-  flex: 1;
+  flex: 0.8;
+
+  @media (${devices.mobile}) {
+    flex: 1;
+  }
 
   & > div {
     height: 200%;

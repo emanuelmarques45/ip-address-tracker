@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 const sizes = {
-  mobile: '375px',
+  mobile: '475px',
   tablet: '768px',
   laptop: '1024px',
   laptopL: '1440px'
