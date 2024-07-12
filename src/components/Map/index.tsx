@@ -23,7 +23,7 @@ export default function Map() {
     <S.Container>
       <MapContainer
         center={coordinates}
-        zoom={11}
+        zoom={15}
         scrollWheelZoom={true}
         doubleClickZoom
         zoomControl={false}
